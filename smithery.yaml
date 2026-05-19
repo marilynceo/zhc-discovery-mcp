@@ -1,0 +1,42 @@
+# Smithery.ai Deployment Manifest for zhc-discovery-mcp
+name: zhc-discovery-mcp
+version: 1.0.0
+description: MCP tool discovery engine u2014 semantic search across 36 ZHC products.
+  Find the right tool for any task. Always free.
+gateway: https://zhc-discovery.zhc-mcp.org
+runtime:
+  language: python
+  entrypoint: src/server.py
+  transport: stdio
+vendor: Zero Human Company
+tags:
+- mcp
+- mcp-server
+- ai-agent
+- zero-human-company
+pricing:
+  type: prepaid
+  trial: 50 free calls
+  packages:
+  - name: 500 Credits
+    price: 5.0
+    currency: EUR
+    credits: 500
+  - name: 5.000 Credits
+    price: 9.0
+    currency: EUR
+    credits: 5000
+  - name: 25.000 Credits
+    price: 19.0
+    currency: EUR
+    credits: 25000
+privacy: No data stored on servers. All inputs processed in-memory. See PRIVACY.md.
+tools:
+- name: discover_tools
+  description: Search query — keywords that match against product name, description,
+    and tags (e.g. 'compliance germany', 'invoice tax')
+- name: list_categories
+  description: List all product categories with the number of products in each and
+    a short description.
+- name: get_product
+  description: Exact product name (e.g. 'de-dsgvo-check-mcp', 'cloudcost-mcp')
